@@ -31,6 +31,11 @@ async function main() {
   await reentranceAttack.waitForDeployment()
 
   console.log(reentranceAttack.target)
+
+  const elevatorAttack = await ethers.deployContract("ElevatorAttack")
+  await elevatorAttack.waitForDeployment()
+
+  console.log(elevatorAttack.target)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
