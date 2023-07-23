@@ -36,6 +36,19 @@ async function main() {
   await elevatorAttack.waitForDeployment()
 
   console.log(elevatorAttack.target)
+
+  const gatekeeperOneAttack = await ethers.deployContract("GatekeeperOneAttack")
+  await gatekeeperOneAttack.waitForDeployment()
+
+  console.log(gatekeeperOneAttack.target)
+
+  const PLAYER_ADDRESS = "0xBcd4042DE499D14e55001CcbB24a551F3b954096"
+  const signer = await ethers.getSigner(PLAYER_ADDRESS)
+
+  const gatekeeperTwoAttack = await ethers.deployContract("GatekeeperTwoAttack", signer)
+  await gatekeeperTwoAttack.waitForDeployment()
+
+  console.log(gatekeeperTwoAttack.target)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
