@@ -2,7 +2,7 @@ import { ethers } from "hardhat"
 const hre = require("hardhat")
 
 async function main() {
-  const coinFlipAttack = await ethers.deployContract("CoinFlipAttack")
+  /*const coinFlipAttack = await ethers.deployContract("CoinFlipAttack")
   await coinFlipAttack.waitForDeployment()
 
   console.log(coinFlipAttack.target)
@@ -40,15 +40,22 @@ async function main() {
   const gatekeeperOneAttack = await ethers.deployContract("GatekeeperOneAttack")
   await gatekeeperOneAttack.waitForDeployment()
 
-  console.log(gatekeeperOneAttack.target)
+  console.log(gatekeeperOneAttack.target)*/
 
   const PLAYER_ADDRESS = "0xBcd4042DE499D14e55001CcbB24a551F3b954096"
   const signer = await ethers.getSigner(PLAYER_ADDRESS)
 
-  const gatekeeperTwoAttack = await ethers.deployContract("GatekeeperTwoAttack", signer)
+  /*const gatekeeperTwoAttack = await ethers.deployContract("GatekeeperTwoAttack", signer)
   await gatekeeperTwoAttack.waitForDeployment()
 
-  console.log(gatekeeperTwoAttack.target)
+  console.log(gatekeeperTwoAttack.target)*/
+
+  const PRESERVATION_ADDRESS = "0x8E8A3c0547c9A17F051D2E5CAf7E0e21C0719E1C"
+
+  const preservationAttack = await ethers.deployContract("PreservationAttack", [PRESERVATION_ADDRESS], signer)
+  await preservationAttack.waitForDeployment()
+
+  console.log(preservationAttack.target)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
