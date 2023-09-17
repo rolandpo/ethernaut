@@ -82,6 +82,18 @@ async function main() {
   await dexAttack.waitForDeployment()
 
   console.log(dexAttack.target)
+
+  const DEX_TWO_ADDRESS = "0xe73bc5BD4763A3307AB5F8F126634b7E12E3dA9b"
+
+  const dexTwoAttack = await ethers.deployContract("DexTwoAttack", [DEX_TWO_ADDRESS, "Rock", "ROCK", 10], signer)
+  await dexTwoAttack.waitForDeployment()
+
+  console.log(dexTwoAttack.target)
+
+  const puzzleWalletAttack = await ethers.deployContract("PuzzleWalletAttack", signer)
+  await puzzleWalletAttack.waitForDeployment()
+
+  console.log(puzzleWalletAttack.target)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
