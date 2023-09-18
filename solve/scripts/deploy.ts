@@ -94,6 +94,16 @@ async function main() {
   await puzzleWalletAttack.waitForDeployment()
 
   console.log(puzzleWalletAttack.target)
+
+  const motorbikeAttack = await ethers.deployContract("MotorbikeAttack", signer)
+  await motorbikeAttack.waitForDeployment()
+
+  console.log(motorbikeAttack.target)
+
+  const bomb = await ethers.deployContract("Bomb", signer)
+  await bomb.waitForDeployment()
+
+  console.log(bomb.target)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
