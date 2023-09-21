@@ -104,6 +104,13 @@ async function main() {
   await bomb.waitForDeployment()
 
   console.log(bomb.target)
+
+  const CRYPTO_VAULT_ADDRESS = "0x62975dF1f0510a14480b8d0B1C2Ee5F868F3f068"
+
+  const alertBot = await ethers.deployContract("AlertBot", [CRYPTO_VAULT_ADDRESS])
+  await alertBot.waitForDeployment()
+
+  console.log(alertBot.target)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
